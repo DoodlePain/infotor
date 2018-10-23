@@ -25,8 +25,9 @@ class RegisterS1 extends Component {
     state = {
         Nome: null,
         Cognome: '',
-        Data: ''
-    }
+        Data: '',
+    };
+
 
     setLocalData() {
         console.log(this.state);
@@ -36,9 +37,6 @@ class RegisterS1 extends Component {
     }
 
     render() {
-        this.value = "ciao"
-        console.log(localStorage.getItem("Data"));
-
         return (
             <div className="App-header">
                 <TextField
