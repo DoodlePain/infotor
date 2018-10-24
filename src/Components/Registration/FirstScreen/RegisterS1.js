@@ -22,18 +22,23 @@ const styles = theme => ({
 });
 
 class RegisterS1 extends Component {
-    state = {
-        Nome: null,
-        Cognome: '',
-        Data: '',
-    };
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            Nome: null,
+            Cognome: '',
+            Data: '',
+        };
+    }
 
     setLocalData() {
         console.log(this.state);
         localStorage.setItem("Nome", this.state.Nome)
         localStorage.setItem("Cognome", this.state.Cognome)
         localStorage.setItem("Data", this.state.Data)
+        this.props.advance()
+
     }
 
     render() {

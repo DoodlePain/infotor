@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import RegisterS1 from './Components/Registration/FirstScreen/RegisterS1'
-import RegisterS2 from './Components/Registration/FirstScreen/RegisterS2'
+import RegisterContainer from "./Components/Registration/RegisterContainer";
+import Timeline from "./Components/Home/Timeline/Timeline";
+import Tasks from "./Components/Home/Tasks/Tasks";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App-header">
-        <RegisterS1 />
-        <RegisterS2 />
-      </div>
+      <BrowserRouter>
+        <div className="App-header">
+          <Switch>
+            <Route exact path="/" component={Timeline} />
+            <Route exact path="/register" component={RegisterContainer} />
+            <Route exact path="/tasks" component={Tasks} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
