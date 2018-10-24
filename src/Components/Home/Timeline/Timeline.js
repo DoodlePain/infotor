@@ -23,7 +23,13 @@ class Timeline extends Component {
         return (
             <div>
                 <h1 style={{ color: 'black', textAlign: "center" }}>Ciao {localStorage.getItem('Nome')}</h1>
-                <h4 style={{ color: 'black' }} onClick={() => { this.props.history.push('/tasks') }}> Ti {this.state.tasks === 1 ? `rimane ${this.state.tasks} cosa` : `rimangono ${this.state.tasks} cose`} da fare</h4>
+                <h4 style={{ color: 'black' }} onClick={() => { this.props.history.push('/tasks') }}> Ti {this.state.tasks === 1 ? `rimane ${this.state.tasks} cosa` : `rimangono ${this.state.tasks} cose`} da fare <i className="material-icons" style={{
+                    cursor: "pointer",
+                    paddingTop: "1%",
+                    position: "absolute"
+                }}>
+                    keyboard_arrow_right
+                        </i></h4>
             </div>
         );
     }

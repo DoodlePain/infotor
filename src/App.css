@@ -8,8 +8,6 @@
 }
 
 .App-header {
-    /* background-color: #282c34; */
-    background: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -41,10 +39,14 @@
     color: black;
 }
 
-p{
+p {
     color: black;
 }
 
-.material-icons{
+.material-icons {
     color: black;
+}
+
+.CardContainer {
+    width: 80%;
 }
