@@ -11,7 +11,7 @@ class Timeline extends Component {
 
 
     async componentWillMount() {
-        if (localStorage.getItem('Nome') === null) { this.props.history.push('/register') }
+        if (localStorage.getItem('Nome') === null || localStorage.getItem('Nome') === "null") { this.props.history.push('/register') }
         var tasks = 3
         await localStorage.getItem('Test') === "true" ? tasks = tasks - 1 : tasks = tasks
         await localStorage.getItem('Iscrizione') === "true" ? tasks = --tasks : tasks = tasks

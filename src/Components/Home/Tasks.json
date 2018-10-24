@@ -1,11 +1,22 @@
 {
-    "test":{
-        "title":"Test"
+    "test": {
+        "title": "Test",
+        "expire": "2018-10-5",
+        "text": "Lorem ipsum"
     },
-    "contributo":{
-        "title":"Contributo"
+    "contributo": {
+        "title": "Contributo",
+        "expire": "2018-11-5",
+        "text": "Lorem ipsum"
     },
-    "immatricolazione":{
-        "title":"Immatricolazione"
+    "primaTassa": {
+        "title": "Prima Tassa",
+        "expire": "2018-11-5",
+        "text": "Lorem ipsum"
+    },
+    "immatricolazione": {
+        "title": "Immatricolazione",
+        "expire": "2018-12-5",
+        "text": "Lorem ipsum"
     }
 }

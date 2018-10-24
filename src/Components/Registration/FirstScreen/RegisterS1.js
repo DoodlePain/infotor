@@ -33,7 +33,6 @@ class RegisterS1 extends Component {
     }
 
     setLocalData() {
-        console.log(this.state);
         localStorage.setItem("Nome", this.state.Nome)
         localStorage.setItem("Cognome", this.state.Cognome)
         localStorage.setItem("Data", this.state.Data)
@@ -78,20 +77,13 @@ class RegisterS1 extends Component {
                     }}
                     type="date"
                     onChange={(e) => {
-                        console.log(e.target.value);
-
                         this.setState({ Data: e.target.value })
                     }}
                 />
                 <Button variant="contained" color="primary" className="button" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
-                    Send &nbsp;
+                    Next &nbsp;
                     <Icon className="rightIcon">send</Icon>
                 </Button>
-                <div className="explanation">
-                    <p>
-                        Questi dati ci aiuteranno a darti una mano e per migliorare la tua esperienza
-                    </p>
-                </div>
             </div>
         );
     }

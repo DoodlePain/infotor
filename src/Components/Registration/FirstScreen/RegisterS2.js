@@ -43,7 +43,6 @@ class RegisterS2 extends Component {
     }
 
     setLocalData() {
-        console.log(this.state);
         localStorage.setItem("Test", this.state.Test)
         localStorage.setItem("Iscrizione", this.state.Iscrizione)
         localStorage.setItem("Immatricolazione", this.state.Immatricolazione)
@@ -69,8 +68,12 @@ class RegisterS2 extends Component {
                 <Switch checked={this.state.Immatricolazione} onChange={this.handleChangeTrigger.bind(this, "Immatricolazione")} />
                 </p>
 
+                <Button variant="contained" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={() => this.props.backward()}>
+                    Back &nbsp;
+                    <Icon className="rightIcon">send</Icon>
+                </Button>
                 <Link to="/" >
-                    <Button variant="contained" color="primary" className="button" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
+                    <Button variant="contained" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
                         Send &nbsp;
                     <Icon className="rightIcon">send</Icon>
                     </Button>

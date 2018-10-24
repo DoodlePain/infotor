@@ -7,10 +7,14 @@ class RegisterContainer extends Component {
 
     advance() {
         this.setState({ step: ++this.state.step })
-        console.log("Clicked");
+        var elementA = document.getElementById('SecondScreen')
+        elementA.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    }
 
-        var element = document.getElementById('SecondScreen')
-        element.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    backward() {
+        this.setState({ step: --this.state.step })
+        var elementB = document.getElementById('FirstScreen')
+        elementB.scrollIntoView({ block: 'end', behavior: 'smooth' })
     }
 
     render() {
@@ -19,8 +23,8 @@ class RegisterContainer extends Component {
                 <div id="FirstScreen">
                     <RegisterS1 advance={this.advance.bind(this)} />
                 </div>
-                <div id="SecondScreen">
-                    <RegisterS2 advance={this.advance.bind(this)} />
+                <div id="SecondScreen" >
+                    <RegisterS2 backward={this.backward.bind(this)} />
                 </div>
             </div>
         );

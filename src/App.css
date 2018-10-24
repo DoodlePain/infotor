@@ -48,5 +48,19 @@ p {
 }
 
 .CardContainer {
-    width: 80%;
+    width: 100%;
+    padding-left: 10%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.singleCard {
+    width: 90%;
+    margin-top: 5%;
+}
+
+.bothInline {
+    color: white;
 }
