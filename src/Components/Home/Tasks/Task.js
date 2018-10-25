@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import { Icon } from '@material-ui/core'
 
 class Task extends Component {
     state = { expanded: false };
@@ -19,6 +20,9 @@ class Task extends Component {
         var timeDiff = d1.getTime() - d2.getTime();
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+        console.log(diffDays);
+
+
         if (diffDays > 30) { color = "#43a047" }
         else if (diffDays < 1) { color = "#e53935" }
         else { color = "#ffb300" }
@@ -29,11 +33,13 @@ class Task extends Component {
                     <Card className="card">
                         <CardHeader
                             avatar={
-                                <Avatar aria-label="Recipe" className="avatar" style={{ background: color }} />
+                                <Avatar aria-label="Recipe" className="avatar" style={{ background: color }} >
+                                    <Icon style={{ color: "white" }}>{task.status}</Icon>
+                                </Avatar>
                             }
                             title={task.title}
                             // subheader="Scad : 5 novembre 2018"
-                            subheader={task.expire}
+                            subheader={task.expire + (diffDays > 0 ? ("     Giorni rimasti : " + diffDays + "") : "")}
                         />
                         <CardActions className="actions" disableActionSpacing onClick={() => { this.setState({ expanded: !this.state.expanded }) }}>
                             <i className="material-icons" style={{ cursor: "pointer" }}>

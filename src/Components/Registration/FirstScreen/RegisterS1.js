@@ -80,9 +80,8 @@ class RegisterS1 extends Component {
                         this.setState({ Data: e.target.value })
                     }}
                 />
-                <Button variant="contained" color="primary" className="button" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
-                    Next &nbsp;
-                    <Icon className="rightIcon">send</Icon>
+                <Button variant="fab" color="primary" className="button" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
+                    <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
                 </Button>
             </div>
         );

@@ -68,14 +68,12 @@ class RegisterS2 extends Component {
                 <Switch checked={this.state.Immatricolazione} onChange={this.handleChangeTrigger.bind(this, "Immatricolazione")} />
                 </p>
 
-                <Button variant="contained" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={() => this.props.backward()}>
-                    Back &nbsp;
-                    <Icon className="rightIcon">send</Icon>
+                <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={() => this.props.backward()}>
+                    <Icon className="rightIcon" style={{ color: "white" }}>arrow_upward</Icon>
                 </Button>
                 <Link to="/" >
-                    <Button variant="contained" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
-                        Send &nbsp;
-                    <Icon className="rightIcon">send</Icon>
+                    <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
+                        <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
                     </Button>
                 </Link>
             </div>
