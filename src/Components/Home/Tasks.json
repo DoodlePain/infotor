@@ -1,50 +1,50 @@
 {
     "test": {
         "title": "Test d'ingresso : Primo appello",
+        "tag":"Test",
         "expire": "2018-9-7",
-        "text": "Lorem ipsum",
-        "status":"done"
+        "text": "Lorem ipsum"
     },
     "contributo": {
         "title": "Contributo",
+        "tag":"Contributo",
         "expire": "2018-11-5",
-        "text": "Lorem ipsum",
-        "status":"done"
+        "text": "Lorem ipsum"
     },
     "primaTassa": {
         "title": "Prima Tassa",
+        "tag":"PrimaTassa",
         "expire": "2018-11-5",
-        "text": "Lorem ipsum",
-        "status":"done"
+        "text": "Lorem ipsum"
     },
     "test2": {
         "title": "Test d'ingresso : Secondo appello",
+        "tag":"SecondoTest",
         "expire": "2018-11-27",
-        "text": "Lorem ipsum",
-        "status":"done"
+        "text": "Lorem ipsum"
     },
     "immatricolazione": {
         "title": "Immatricolazione",
+        "tag":"Immatricolazione",
         "expire": "2018-12-5",
-        "text": "Lorem ipsum",
-        "status":"done"
+        "text": "Lorem ipsum"
     },
     "isee1": {
         "title": "ISEE : Prima scadenza",
+        "tag":"Isee",
         "expire": "2018-12-17",
-        "text": "Lorem ipsum",
-        "status":"more_horiz"
+        "text": "Lorem ipsum"
     },
     "isee2": {
         "title": "ISEE : Seconda scadenza",
+        "tag":"SecondoIsee",
         "expire": "2019-3-15",
-        "text": "Lorem ipsum",
-        "status":"more_horiz"
+        "text": "Lorem ipsum"
     },
     "isee3": {
         "title": "ISEE : Terza scadenza",
+        "tag":"TerzoIsee",
         "expire": "2019-5-31",
-        "text": "Lorem ipsum",
-        "status":"more_horiz"
+        "text": "Lorem ipsum"
     }
 }

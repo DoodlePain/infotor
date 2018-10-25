@@ -36,7 +36,6 @@ class Task extends Component {
                                 </Avatar>
                             }
                             title={task.title}
-                            // subheader="Scad : 5 novembre 2018"
                             subheader={task.expire + (diffDays > 0 ? ("     Giorni rimasti : " + diffDays + "") : "")}
                             action={<i className="material-icons" style={{ cursor: "pointer" }} onClick={() => { console.log("Click") }}>
                                 clear

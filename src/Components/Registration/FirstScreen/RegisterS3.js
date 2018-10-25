@@ -51,6 +51,7 @@ class RegisterS3 extends Component {
 
     setLocalData() {
         localStorage.setItem("PrimaTassa", this.state.PrimaTassa)
+        localStorage.setItem("SecondaTassa", this.state.SecondaTassa)
     }
 
     render() {

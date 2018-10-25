@@ -8,11 +8,16 @@ class RegisterContainer extends Component {
 
     advance() {
         if (this.state.step < 3) {
-            this.setState({ step: ++this.state.step })
             var element = null
+            var changePage = (localStorage.getItem('Nome') === null || localStorage.getItem('Nome') === "null" ||
+                localStorage.getItem('Cognome') === null || localStorage.getItem('Cognome') === "null" ||
+                localStorage.getItem('Data') === null || localStorage.getItem('Data') === "null")
+
+            if (!changePage) this.setState({ step: ++this.state.step })
+
             if (this.state.step === 2) element = document.getElementById('SecondScreen')
             else if (this.state.step === 3) element = document.getElementById('ThirdScreen')
-            element.scrollIntoView({ block: 'end', behavior: 'smooth' });
+            if (element !== null) element.scrollIntoView({ block: 'end', behavior: 'smooth' });
         }
     }
 
