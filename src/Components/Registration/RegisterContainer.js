@@ -36,7 +36,7 @@ class RegisterContainer extends Component {
                     <RegisterS2 backward={this.backward.bind(this)} advance={this.advance.bind(this)} />
                 </div>
                 <div id="ThirdScreen" >
-                    <RegisterS3 backward={this.backward.bind(this)} />
+                    <RegisterS3 backward={this.backward.bind(this)} active={this.state.step === 3} />
                 </div>
             </div>
         );

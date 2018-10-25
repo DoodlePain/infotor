@@ -20,8 +20,6 @@ class Task extends Component {
         var timeDiff = d1.getTime() - d2.getTime();
         var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-        console.log(diffDays);
-
 
         if (diffDays > 30) { color = "#43a047" }
         else if (diffDays < 1) { color = "#e53935" }
@@ -30,7 +28,7 @@ class Task extends Component {
         return (
             <div>
                 <div className="singleCard">
-                    <Card className="card">
+                    <Card className="card" onClick={() => { this.setState({ expanded: !this.state.expanded }) }}>
                         <CardHeader
                             avatar={
                                 <Avatar aria-label="Recipe" className="avatar" style={{ background: color }} >
@@ -40,8 +38,11 @@ class Task extends Component {
                             title={task.title}
                             // subheader="Scad : 5 novembre 2018"
                             subheader={task.expire + (diffDays > 0 ? ("     Giorni rimasti : " + diffDays + "") : "")}
+                            action={<i className="material-icons" style={{ cursor: "pointer" }} onClick={() => { console.log("Click") }}>
+                                clear
+                            </i>}
                         />
-                        <CardActions className="actions" disableActionSpacing onClick={() => { this.setState({ expanded: !this.state.expanded }) }}>
+                        <CardActions className="actions" disableActionSpacing >
                             <i className="material-icons" style={{ cursor: "pointer" }}>
                                 {this.state.expanded ? "keyboard_arrow_up " : "keyboard_arrow_down"}
                             </i>

@@ -6,43 +6,28 @@ import { Link } from "react-router-dom";
 class RegisterS3 extends Component {
     constructor(props) {
         super(props)
-        const Test = localStorage.getItem("Test") === "true"
-        const Iscrizione = localStorage.getItem("Iscrizione") === "true"
-        const Immatricolazione = localStorage.getItem("Immatricolazione") === "true"
-        const Tasse = localStorage.getItem("Tasse") === "true"
-        console.log(Tasse);
+
+        var PrimaTassa = localStorage.getItem("PrimaTassa") === "true"
+        var SecondaTassa = localStorage.getItem("SecondaTassa") === "true"
+
         this.state = {
-            Test: Test,
-            Iscrizione: Iscrizione,
-            Immatricolazione: Immatricolazione,
-            Tasse: Tasse
+            PrimaTassa: PrimaTassa,
+            SecondaTassa: SecondaTassa
         };
 
     }
 
     handleChangeTrigger(label) {
         switch (label) {
-            case "Test":
+            case "PrimaTassa":
                 this.setState({
-                    Test: !this.state.Test
+                    PrimaTassa: !this.state.PrimaTassa
                 })
                 break;
 
-            case "Iscrizione":
+            case "SecondaTassa":
                 this.setState({
-                    Iscrizione: !this.state.Iscrizione
-                })
-                break;
-
-            case "Immatricolazione":
-                this.setState({
-                    Immatricolazione: !this.state.Immatricolazione
-                })
-                break;
-
-            case "Tasse":
-                this.setState({
-                    Tasse: !this.state.Tasse
+                    SecondaTassa: !this.state.SecondaTassa
                 })
                 break;
 
@@ -51,14 +36,26 @@ class RegisterS3 extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.active !== this.props.active) {
+            return true
+        }
+        if (nextState.tasseAttive !== this.state.tasseAttive) {
+            return true
+        }
+        if (nextState !== this.state) {
+            return true
+        }
+        return false
+    }
+
     setLocalData() {
         localStorage.setItem("PrimaTassa", this.state.PrimaTassa)
     }
 
     render() {
 
-        var disableSwitch = this.state.Test
-        console.log(disableSwitch);
+        var disableSwitch = localStorage.getItem('Tasse') === "true"
 
 
         return (
@@ -68,7 +65,11 @@ class RegisterS3 extends Component {
                 </Button>
                 <p>
                     Prima tassa?
-                    <Switch checked={this.state.Test} onChange={this.handleChangeTrigger.bind(this, "Test")} disabled={!this.state.Tasse} />
+                    <Switch checked={this.state.PrimaTassa} onChange={this.handleChangeTrigger.bind(this, "PrimaTassa")} disabled={!disableSwitch} />
+                </p>
+                <p>
+                    Seconda tassa?
+                    <Switch checked={this.state.SecondaTassa} onChange={this.handleChangeTrigger.bind(this, "SecondaTassa")} disabled={!disableSwitch} />
                 </p>
 
 

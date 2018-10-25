@@ -10,8 +10,6 @@ class RegisterS2 extends Component {
         const Iscrizione = localStorage.getItem("Iscrizione") === "true"
         const Immatricolazione = localStorage.getItem("Immatricolazione") === "true"
         const Tasse = localStorage.getItem("Tasse") === "true"
-        console.log(localStorage.getItem("Test"));
-
         this.state = {
             Test: Test,
             Iscrizione: Iscrizione,
