@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
+
 import { Button, Icon, Switch } from '@material-ui/core';
 import { Link } from "react-router-dom";
 
-
-class RegisterS2 extends Component {
+class RegisterS3 extends Component {
     constructor(props) {
         super(props)
         const Test = localStorage.getItem("Test") === "true"
         const Iscrizione = localStorage.getItem("Iscrizione") === "true"
         const Immatricolazione = localStorage.getItem("Immatricolazione") === "true"
         const Tasse = localStorage.getItem("Tasse") === "true"
-        console.log(localStorage.getItem("Test"));
-
+        console.log(Tasse);
+        this.forceUpdate()
         this.state = {
             Test: Test,
             Iscrizione: Iscrizione,
@@ -56,8 +56,6 @@ class RegisterS2 extends Component {
         localStorage.setItem("Test", this.state.Test)
         localStorage.setItem("Iscrizione", this.state.Iscrizione)
         localStorage.setItem("Immatricolazione", this.state.Immatricolazione)
-        localStorage.setItem("Tasse", this.state.Tasse)
-        this.props.advance()
     }
 
     render() {
@@ -69,8 +67,10 @@ class RegisterS2 extends Component {
                     <Icon className="rightIcon" style={{ color: "white" }}>arrow_upward</Icon>
                 </Button>
                 <p>
-                    Hai svolto il test?
-                <Switch checked={this.state.Test} onChange={this.handleChangeTrigger.bind(this, "Test")} />
+                    Prima tassa?
+                <Switch checked={this.state.Test} onChange={this.handleChangeTrigger.bind(this, "Test")}
+                        disableRipple={localStorage.getItem('Tassa') === "true"}
+                    />
                 </p>
 
                 <p>
@@ -88,14 +88,14 @@ class RegisterS2 extends Component {
                 <Switch checked={this.state.Tasse} onChange={this.handleChangeTrigger.bind(this, "Tasse")} />
                 </p>
 
-                {/* <Link to="/" > */}
-                <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
-                    <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
-                </Button>
-                {/* </Link> */}
+                <Link to="/" >
+                    <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
+                        <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
+                    </Button>
+                </Link>
             </div>
         );
     }
 }
 
-export default RegisterS2;
+export default RegisterS3;
