@@ -11,7 +11,6 @@ class RegisterS3 extends Component {
         const Immatricolazione = localStorage.getItem("Immatricolazione") === "true"
         const Tasse = localStorage.getItem("Tasse") === "true"
         console.log(Tasse);
-        this.forceUpdate()
         this.state = {
             Test: Test,
             Iscrizione: Iscrizione,
@@ -53,13 +52,14 @@ class RegisterS3 extends Component {
     }
 
     setLocalData() {
-        localStorage.setItem("Test", this.state.Test)
-        localStorage.setItem("Iscrizione", this.state.Iscrizione)
-        localStorage.setItem("Immatricolazione", this.state.Immatricolazione)
+        localStorage.setItem("PrimaTassa", this.state.PrimaTassa)
     }
 
     render() {
-        this.value = "ciao"
+
+        var disableSwitch = this.state.Test
+        console.log(disableSwitch);
+
 
         return (
             <div className="App-header">
@@ -68,25 +68,9 @@ class RegisterS3 extends Component {
                 </Button>
                 <p>
                     Prima tassa?
-                <Switch checked={this.state.Test} onChange={this.handleChangeTrigger.bind(this, "Test")}
-                        disableRipple={localStorage.getItem('Tassa') === "true"}
-                    />
+                    <Switch checked={this.state.Test} onChange={this.handleChangeTrigger.bind(this, "Test")} disabled={!this.state.Tasse} />
                 </p>
 
-                <p>
-                    Hai pagato il contributo?
-                <Switch checked={this.state.Iscrizione} onChange={this.handleChangeTrigger.bind(this, "Iscrizione")} />
-                </p>
-
-                <p>
-                    Ti sei immatricolato?
-                <Switch checked={this.state.Immatricolazione} onChange={this.handleChangeTrigger.bind(this, "Immatricolazione")} />
-                </p>
-
-                <p>
-                    Hai pagato le tasse?
-                <Switch checked={this.state.Tasse} onChange={this.handleChangeTrigger.bind(this, "Tasse")} />
-                </p>
 
                 <Link to="/" >
                     <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
