@@ -5,7 +5,7 @@ class Timeline extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { tasks: 3 }
+        this.state = { tasks: 6 }
 
     }
 
@@ -13,9 +13,12 @@ class Timeline extends Component {
     async componentWillMount() {
         if (localStorage.getItem('Nome') === null || localStorage.getItem('Nome') === "null") { this.props.history.push('/register') }
         var tasks = 3
-        await localStorage.getItem('Test') === "true" ? tasks = tasks - 1 : tasks = tasks
+        await localStorage.getItem('Test') === "true" ? tasks = --tasks : tasks = tasks
         await localStorage.getItem('Iscrizione') === "true" ? tasks = --tasks : tasks = tasks
         await localStorage.getItem('Immatricolazione') === "true" ? tasks = --tasks : tasks = tasks
+        await localStorage.getItem('Tasse') === "true" ? tasks = --tasks : tasks = tasks
+        await localStorage.getItem('PrimaTassa') === "true" ? tasks = --tasks : tasks = tasks
+        await localStorage.getItem('SecondaTassa') === "true" ? tasks = --tasks : tasks = tasks
         this.setState({ tasks })
     }
 

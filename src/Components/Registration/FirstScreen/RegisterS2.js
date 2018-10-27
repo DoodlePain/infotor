@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import { Button, Icon, Switch } from '@material-ui/core';
-import { Link } from "react-router-dom";
 
 
 class RegisterS2 extends Component {
     constructor(props) {
         super(props)
         const Test = localStorage.getItem("Test") === "true"
-        const Iscrizione = localStorage.getItem("Iscrizione") === "true"
+        const Contributo = localStorage.getItem("Contributo") === "true"
         const Immatricolazione = localStorage.getItem("Immatricolazione") === "true"
         const Tasse = localStorage.getItem("Tasse") === "true"
         this.state = {
             Test: Test,
-            Iscrizione: Iscrizione,
+            Contributo: Contributo,
             Immatricolazione: Immatricolazione,
             Tasse: Tasse
         };
@@ -27,15 +26,16 @@ class RegisterS2 extends Component {
                 })
                 break;
 
-            case "Iscrizione":
+            case "Contributo":
                 this.setState({
-                    Iscrizione: !this.state.Iscrizione
+                    Contributo: !this.state.Contributo
                 })
                 break;
 
             case "Immatricolazione":
                 this.setState({
-                    Immatricolazione: !this.state.Immatricolazione
+                    Immatricolazione: !this.state.Immatricolazione,
+                    Tasse: false
                 })
                 break;
 
@@ -52,7 +52,8 @@ class RegisterS2 extends Component {
 
     setLocalData() {
         localStorage.setItem("Test", this.state.Test)
-        localStorage.setItem("Iscrizione", this.state.Iscrizione)
+        this.state.Test ? localStorage.setItem('SecondoTest', true) : localStorage.setItem('SecondoTest', false)
+        localStorage.setItem("Contributo", this.state.Contributo)
         localStorage.setItem("Immatricolazione", this.state.Immatricolazione)
         localStorage.setItem("Tasse", this.state.Tasse)
         this.props.advance()
@@ -73,7 +74,7 @@ class RegisterS2 extends Component {
 
                 <p>
                     Hai pagato il contributo?
-                <Switch checked={this.state.Iscrizione} onChange={this.handleChangeTrigger.bind(this, "Iscrizione")} />
+                <Switch checked={this.state.Contributo} onChange={this.handleChangeTrigger.bind(this, "Contributo")} />
                 </p>
 
                 <p>
@@ -83,14 +84,12 @@ class RegisterS2 extends Component {
 
                 <p>
                     Hai pagato le tasse?
-                <Switch checked={this.state.Tasse} onChange={this.handleChangeTrigger.bind(this, "Tasse")} />
+                <Switch checked={this.state.Tasse} onChange={this.handleChangeTrigger.bind(this, "Tasse")} disabled={!this.state.Immatricolazione} />
                 </p>
 
-                {/* <Link to="/" > */}
                 <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
                     <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
                 </Button>
-                {/* </Link> */}
             </div>
         );
     }

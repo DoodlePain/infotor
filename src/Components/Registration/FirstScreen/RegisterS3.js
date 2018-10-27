@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
 import { Button, Icon, Switch } from '@material-ui/core';
-import { Link } from "react-router-dom";
+
 
 class RegisterS3 extends Component {
     constructor(props) {
@@ -52,6 +51,7 @@ class RegisterS3 extends Component {
     setLocalData() {
         localStorage.setItem("PrimaTassa", this.state.PrimaTassa)
         localStorage.setItem("SecondaTassa", this.state.SecondaTassa)
+        this.props.advance()
     }
 
     render() {
@@ -74,11 +74,9 @@ class RegisterS3 extends Component {
                 </p>
 
 
-                <Link to="/" >
-                    <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
-                        <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
-                    </Button>
-                </Link>
+                <Button variant="fab" color="primary" className="button bothInline" style={{ marginTop: "10%" }} onClick={this.setLocalData.bind(this)}>
+                    <Icon className="rightIcon" style={{ color: "white" }}>arrow_downward</Icon>
+                </Button>
             </div>
         );
     }

@@ -25,6 +25,8 @@ class Task extends Component {
         else if (diffDays < 1) { color = "#e53935" }
         else { color = "#ffb300" }
 
+        var TaskStatus = localStorage.getItem(`${task.tag}`) === "true" ? "done" : "more_horizontal"
+
         return (
             <div>
                 <div className="singleCard">
@@ -32,7 +34,7 @@ class Task extends Component {
                         <CardHeader
                             avatar={
                                 <Avatar aria-label="Recipe" className="avatar" style={{ background: color }} >
-                                    <Icon style={{ color: "white" }}>{task.status}</Icon>
+                                    <Icon style={{ color: "white" }}>{TaskStatus}</Icon>
                                 </Avatar>
                             }
                             title={task.title}
