@@ -39,9 +39,7 @@ class Task extends Component {
                             }
                             title={task.title}
                             subheader={task.expire + (diffDays > 0 ? ("     Giorni rimasti : " + diffDays + "") : "")}
-                            action={<i className="material-icons" style={{ cursor: "pointer" }} onClick={() => { console.log("Click") }}>
-                                clear
-                            </i>}
+
                         />
                         <CardActions className="actions" disableActionSpacing >
                             <i className="material-icons" style={{ cursor: "pointer" }}>
